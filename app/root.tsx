@@ -1,4 +1,4 @@
-import { Links, LiveReload, Meta } from "@remix-run/react";
+import { Links, LiveReload, Meta, Outlet } from "@remix-run/react";
 
 export default function App() {
   return (
@@ -11,7 +11,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        Hello world
+        <Outlet />
         <LiveReload />
       </body>
     </html>
