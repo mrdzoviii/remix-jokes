@@ -1,6 +1,6 @@
 import type { ActionArgs } from "@remix-run/node";
 import { redirect } from "@remix-run/node";
-import { Form, useActionData } from "@remix-run/react";
+import { useActionData } from "@remix-run/react";
 
 import { db } from "~/utils/db.server";
 import { badRequest } from "~/utils/request.server";
@@ -52,7 +52,12 @@ export default function NewJokeRoute() {
   return (
     <div>
       <p>Add your own hilarious joke</p>
-      <Form method="post">
+      <form
+        method="post"
+        aria-describedby={
+          actionData?.formError ? "form-error-message" : undefined
+        }
+      >
         <div>
           <label>
             Name:
@@ -106,7 +111,7 @@ export default function NewJokeRoute() {
             Add
           </button>
         </div>
-      </Form>
+      </form>
     </div>
   );
 }
